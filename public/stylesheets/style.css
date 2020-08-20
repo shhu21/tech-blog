@@ -1,0 +1,87 @@
+:root {
+    --main-bg-color: rgb(181, 209, 193);
+    --accent-color: rgb(26, 11, 11);
+}
+
+header {
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+    text-decoration: none;
+    padding: 20px 10px 30px 20px;
+    margin-bottom: 30px;
+}
+
+nav {
+    margin: 0 0 30px 10px;
+    font-size: 20px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+nav a {
+    color: var(--main-bg-color);
+    text-decoration: none;
+    margin-right: 5rem;
+}
+
+nav a:hover {
+    color: var(--main-bg-color);
+    border-bottom: solid var(--main-bg-color);
+}
+
+h1 a {
+    background-color: var(--main-bg-color);
+    color: var(--accent-color);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    box-shadow: 5px 10px #888888;
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+.card {
+    margin: 10px;
+    border: solid var(--accent-color);
+}
+
+.card-header {
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+    border-radius: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-header h2 {
+    color: var(--main-bg-color);
+}
+
+.card-body {
+    background-color: var(--main-bg-color);
+    color: var(--accent-color);
+}
+
+textarea {
+    width: 100%;
+    height: 5rem; 
+}
+
+#comment-btn {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+h3 {
+    font-size: 15px;
+}

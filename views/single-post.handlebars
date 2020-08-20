@@ -1,31 +1,44 @@
-<article class="post">
-  <div class="title">
-    <h2>{{post.title}}</h2>
-    <p>{{post.post_content}}</p>
-  </div>
-  <div class="meta">
-    Posted by {{post.user.username}} on {{post.created_at}}
-  </div>
+<article>
+    <div class="card">
+        <div class="card-header rounded-0">
+            <h2>{{post.title}}</h2>
+            Posted by {{post.user.username}} on {{post.created_at}}
+        </div>
+        <div class="card-body">
+            <p>{{post.post_content}}</p>
+        </div>
+    </div>
   {{#if loggedIn}}
-  <form class="comment-form">
-    <div>
-      <textarea name="comment-body"></textarea>
-    </div>
+  <div class="card">
+      <div class="card-header rounded-0"></div>
+        <div class="card-body">
+            Comment
+            <form class="comment-form">
+                <div>
+                <textarea name="comment-body"></textarea>
+                </div>
 
-    <div>
-      <button type="submit">add comment</button>
-    </div>
-  </form>
+                <div>
+                <button id="comment-btn" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+  </div>
 {{/if}}
 
 <div class="comments">
   {{#each post.comments}}
-  <section class="comment">
-    <div class="text">
-      {{comment_text}}
-      - {{user.username}}, {{created_at}}
-    </div>
-  </section>
+  <div class="card">
+      <div class="card-header rounded-0"></div>
+      <div class="card-body">
+        <section class="comment">
+            <div class="text">
+            {{comment_text}}
+            - {{user.username}}, {{created_at}}
+            </div>
+        </section>
+      </div>
+  </div>
   {{/each}}
 </div>
 </article>
