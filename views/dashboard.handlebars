@@ -1,16 +1,9 @@
-<ol class="post-list">
+<ul class="list-group">
   {{#each posts as |post|}}
-    <li>
-    <article class="card">
-      <div class="card-header rounded-0">
+    <li class="list-group-item">
         <h2>{{post.title}}</h2>
         <h3>Posted by {{post.user.username}}, {{post.created_at}}</h3>
-      </div>
-      <div class="card-body">
-          <p>{{post.post_content}}</p>
-      </div>
-    </article>
-  </li>
+    </li>
   {{/each}}
-</ol>
-<a href="/new-post">New Post</a>
+</ul>
+<a href="/new-post" id="new-post-btn" class="btn">+ New Post</a>

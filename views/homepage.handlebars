@@ -1,9 +1,11 @@
 <section>
   {{#each posts as |post|}}
     <article class="card">
-      <div class="card-header rounded-0">
-        <a href="/post/{{post.id}}"><h2>{{post.title}}</h2></a>
-        <h3>Posted by {{post.user.username}}, {{post.created_at}}</h3>
+      <div class="card-header rounded-0 post-list">
+        <a href="/post/{{post.id}}">
+          <h2>{{post.title}}</h2>
+          <h3>Posted by {{post.user.username}} on {{post.created_at}}</h3>
+        </a>
       </div>
       <div class="card-body">
           <p>{{post.post_content}}</p>
