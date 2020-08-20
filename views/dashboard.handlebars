@@ -3,7 +3,7 @@
     <li>
     <article class="post">
       <div class="title">
-        <a href="/post/{{post.id}}"><h2>{{post.title}}</h2></a>
+        <h2>{{post.title}}</h2>
         <h2>Posted by {{post.user.username}}, {{post.created_at}}</h2>
       </div>
       <div class="meta">
@@ -13,3 +13,4 @@
   </li>
   {{/each}}
 </ol>
+<a href="/new-post">New Post</a>

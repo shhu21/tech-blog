@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
     ],
     order: [['created_at', 'DESC']],
     include: [
-      // include the Comment model here:
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -79,16 +78,18 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  if (req.session) {
     Post.create({
       title: req.body.title,
       post_content: req.body.post_content,
-      user_id: req.body.user_id
+      user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
+  }
 });
 
 router.put('/:id', (req, res) => {
