@@ -1,11 +1,15 @@
 {{#if loggedIn}}
   <ul class="list-group">
     {{#each posts as |post|}}
+    <a href="/dashboard/edit/{{post.id}}">
       <li class="list-group-item">
           <h2>{{post.title}}</h2>
           <h3>Posted by {{post.user.username}}, {{format_date post.created_at}}</h3>
       </li>
+    </a>
     {{/each}}
   </ul>
   <a href="/new-post" id="new-post-btn" class="btn">+ New Post</a>
 {{/if}}
+
+<script src="/javascript/edit-post.js"></script>

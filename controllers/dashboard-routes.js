@@ -1,7 +1,8 @@
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 const { Post, User, Comment } = require('../models');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
       where: {
         // use the ID from the session
@@ -78,6 +79,35 @@ router.get('/dashboard', (req, res) => {
     console.log(err);
     res.status(500).json(err);
   });
+});
+
+router.get('/edit/:id', withAuth, (req, res) => {
+    Post.findOne({
+        where: {
+          id: req.params.id
+        },
+        attributes: [
+          'id',
+          'post_content',
+          'title',
+          'created_at'
+        ],
+        include: [
+          {
+            model: User,
+            attributes: ['username']
+          }
+        ]
+    })
+    .then(dbPostData => {
+        // serialize data before passing to template
+        const post = dbPostData.get({ plain: true });
+        res.render('edit-post', { post, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;

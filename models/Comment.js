@@ -10,12 +10,10 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true
     },
-    //comment text
     comment_text: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    //who commented
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -24,7 +22,6 @@ Comment.init(
         key: 'id'
       }
     },
-    //which post they commented on
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
