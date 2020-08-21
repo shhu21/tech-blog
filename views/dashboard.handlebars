@@ -1,9 +1,11 @@
-<ul class="list-group">
-  {{#each posts as |post|}}
-    <li class="list-group-item">
-        <h2>{{post.title}}</h2>
-        <h3>Posted by {{post.user.username}}, {{post.created_at}}</h3>
-    </li>
-  {{/each}}
-</ul>
+{{#if loggedIn}}
+  <ul class="list-group">
+    {{#each posts as |post|}}
+      <li class="list-group-item">
+          <h2>{{post.title}}</h2>
+          <h3>Posted by {{post.user.username}}, {{format_date post.created_at}}</h3>
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
 <a href="/new-post" id="new-post-btn" class="btn">+ New Post</a>

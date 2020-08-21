@@ -1,6 +1,6 @@
 :root {
     --main-bg-color: rgb(181, 209, 193);
-    --accent-color: rgb(26, 11, 11);
+    --accent-color: rgb(37, 18, 18);
     --hover-color: rgb(87, 71, 71);
 }
 
@@ -101,6 +101,7 @@ h3 {
 
 .btn:hover, .post-list:hover {
     background-color: var(--hover-color);
+    color: white;
 }
 
 input {

@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header rounded-0">
             <h2>{{post.title}}</h2>
-            Posted by {{post.user.username}} on {{post.created_at}}
+            Posted by {{post.user.username}} on {{format_date post.created_at}}
         </div>
         <div class="card-body">
             <p>{{post.post_content}}</p>
@@ -26,22 +26,7 @@
   </div>
 {{/if}}
 
-<div class="comments">
-  {{#each post.comments}}
-  <div class="card">
-      <div class="card-header rounded-0"></div>
-      <div class="card-body">
-        <section class="comment">
-            <div class="text">
-            {{comment_text}}
-            - {{user.username}}, {{created_at}}
-            </div>
-        </section>
-      </div>
-  </div>
-  {{/each}}
-</div>
-</article>
+{{> comments post.comments}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
