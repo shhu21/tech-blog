@@ -136,46 +136,12 @@ router.get('/post/:id', (req, res) => {
   });
 });
 
-router.get('/dashboard', (req, res) => {
-  Post.findAll({
-    attributes: [
-      'id',
-      'post_content',
-      'title',
-      'created_at'
-    ],
-    where: {
-      user_id: req.session.user_id
-    },
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
-  })
-  .then(dbPostData => {
-    // serialize the data
-    const posts = dbPostData.map(post => post.get({ plain: true }));
+router.get('/new-post', (req, res) => {
+  res.render('new-post');
+})
 
-    // pass data to template
-    res.render('dashboard', {
-      posts,
-      loggedIn: req.session.loggedIn
-    });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-});
+router.get('/signup', (req, res) => {
+  res.render('signup');
+})
 
 module.exports = router;

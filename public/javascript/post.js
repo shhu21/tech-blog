@@ -3,7 +3,7 @@ async function postFormHandler(event) {
     const title = document.querySelector('textarea[name="post-title"]').value.trim();
     const post_content = document.querySelector('textarea[name="post-body"]').value.trim();
     
-    if (comment_text) {
+    if (title) {
         const response = await fetch('/api/posts', {
             method: 'POST',
             body: JSON.stringify({
