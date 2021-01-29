@@ -1,4 +1,4 @@
-# just-tech-news
+# tech-blog
 
 # URL Link
 [Heroku Link](https://afternoon-scrubland-66938.herokuapp.com/)
